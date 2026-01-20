@@ -71,6 +71,8 @@ export function GridLoadChart({ hourlyData, adoptionCount }: GridLoadChartProps)
               borderRadius: "8px",
               boxShadow: "var(--card-shadow)",
             }}
+            labelStyle={{ color: "var(--muted-foreground)" }}
+            itemStyle={{ color: "var(--primary)" }}
             formatter={(value, name) => [
               `${value}%`,
               name === "baseline" ? "Without ChargeFlow" : "With ChargeFlow",

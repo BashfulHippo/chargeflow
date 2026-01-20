@@ -52,6 +52,8 @@ export function ScheduleChart({ schedule, startHour }: ScheduleChartProps) {
               borderRadius: "8px",
               boxShadow: "var(--card-shadow)",
             }}
+            labelStyle={{ color: "var(--muted-foreground)" }}
+            itemStyle={{ color: "var(--primary)" }}
             formatter={(value) => [`${Number(value).toFixed(1)} kWh`, "Charging"]}
             labelFormatter={(label) => `Time: ${label}`}
             cursor={{ fill: "var(--accent)" }}

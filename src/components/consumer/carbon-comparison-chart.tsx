@@ -58,6 +58,8 @@ export function CarbonComparisonChart({
                 borderRadius: "8px",
                 boxShadow: "var(--card-shadow)",
               }}
+              labelStyle={{ color: "var(--muted-foreground)" }}
+              itemStyle={{ color: "var(--primary)" }}
               formatter={(value) => [`${Number(value).toFixed(2)} kg CO2`, "Emissions"]}
               cursor={{ fill: "var(--accent)" }}
             />

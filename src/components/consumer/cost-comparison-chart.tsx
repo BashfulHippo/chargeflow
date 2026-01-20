@@ -58,6 +58,8 @@ export function CostComparisonChart({
                 borderRadius: "8px",
                 boxShadow: "var(--card-shadow)",
               }}
+              labelStyle={{ color: "var(--muted-foreground)" }}
+              itemStyle={{ color: "var(--primary)" }}
               formatter={(value) => [`€${Number(value).toFixed(2)}`, "Cost"]}
               cursor={{ fill: "var(--accent)" }}
             />
