@@ -30,7 +30,7 @@ export function ScheduleChart({ schedule, startHour }: ScheduleChartProps) {
   }).slice(0, 12);
 
   return (
-    <div className="h-56 w-full">
+    <div className="h-56 w-full outline-none" tabIndex={-1}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={chartData} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
           <XAxis

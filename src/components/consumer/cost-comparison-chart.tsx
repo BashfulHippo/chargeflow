@@ -29,7 +29,7 @@ export function CostComparisonChart({
 
   return (
     <div className="space-y-3">
-      <div className="h-28 w-full">
+      <div className="h-28 w-full outline-none" tabIndex={-1}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}

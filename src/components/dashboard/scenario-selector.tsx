@@ -21,9 +21,9 @@ export function ScenarioSelector({
           <button
             key={scenario.id}
             onClick={() => onSelect(scenario.id)}
-            className={`text-left p-4 rounded-lg border transition-all ${
+            className={`text-left p-4 rounded-lg border transition-all focus:outline-none ${
               isSelected
-                ? "border-primary bg-accent card-active"
+                ? "border-primary bg-primary/10"
                 : "border-card-border bg-card hover:border-primary/30 hover:bg-secondary/50"
             }`}
           >

@@ -36,7 +36,7 @@ export function GridLoadChart({ hourlyData, adoptionCount }: GridLoadChartProps)
   });
 
   return (
-    <div className="h-72 w-full chart-container">
+    <div className="h-72 w-full chart-container outline-none" tabIndex={-1}>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={chartData} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
           <defs>

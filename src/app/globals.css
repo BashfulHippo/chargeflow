@@ -68,6 +68,36 @@ body {
     border-color: var(--border);
   }
 
+  /* Global focus-visible styles - remove default browser outlines */
+  *:focus {
+    outline: none;
+  }
+
+  /* Only show focus ring for keyboard navigation (focus-visible) */
+  *:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px rgba(34, 197, 94, 0.5);
+  }
+
+  /* Remove focus ring from non-interactive elements */
+  div:focus-visible,
+  svg:focus-visible,
+  section:focus-visible {
+    box-shadow: none;
+  }
+
+  /* Buttons and interactive elements get the green ring */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [role="button"]:focus-visible,
+  [tabindex="0"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px rgba(34, 197, 94, 0.5);
+  }
+
   /* Typography scale */
   h1 {
     font-size: 48px;
@@ -123,20 +153,7 @@ body {
     box-shadow: var(--card-shadow);
   }
 
-  /* Active/selected card accent */
-  .card-active {
-    position: relative;
-  }
-  .card-active::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 12px;
-    bottom: 12px;
-    width: 3px;
-    background: var(--primary);
-    border-radius: 0 2px 2px 0;
-  }
+  /* Removed card-active green bar - using border/bg state instead */
 
   /* Section spacing */
   .section-gap {
