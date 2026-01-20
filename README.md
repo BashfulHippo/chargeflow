@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ChargeFlow
+
+**Charge smarter: cheapest, cleanest, grid-friendly EV charging—built for Lisbon.**
+
+ChargeFlow is a smart EV charging optimizer that helps drivers save money, reduce their carbon footprint, and support grid stability. Built for the TecStorm'26 Hackathon.
+
+## Features
+
+- **Smart Scheduling**: Optimizes charging times based on electricity prices, carbon intensity, and grid load
+- **Three Optimization Modes**: Cheapest, Greenest, or Balanced
+- **Lisbon-Specific**: Built for Portuguese energy market with realistic OMIE price patterns
+- **City Impact Dashboard**: Visualize the collective impact of smart charging adoption
+- **Demo Mode**: Pre-configured scenarios for easy demonstration
+
+## Tech Stack
+
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Recharts
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/your-username/chargeflow.git
+cd chargeflow
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+chargeflow/
+├── src/
+│   ├── app/                 # Next.js App Router pages
+│   │   ├── page.tsx         # Landing page
+│   │   ├── consumer/        # Consumer charging page
+│   │   ├── dashboard/       # City impact dashboard
+│   │   └── api/             # API routes
+│   ├── components/          # React components
+│   │   ├── ui/              # Design system components
+│   │   ├── layout/          # Layout components
+│   │   ├── consumer/        # Consumer page components
+│   │   ├── dashboard/       # Dashboard components
+│   │   └── landing/         # Landing page components
+│   └── lib/                 # Core logic
+│       ├── types.ts         # TypeScript interfaces
+│       ├── scenarios.ts     # Lisbon energy scenarios
+│       ├── scheduler.ts     # Scheduling algorithm
+│       └── city-simulator.ts # City impact calculations
+└── docs/                    # Documentation
+    ├── pitch.md             # 90-second pitch script
+    ├── demo.md              # Demo walkthrough
+    ├── devpost.md           # Submission copy
+    ├── judge-notes.md       # Why this wins
+    └── assumptions.md       # Technical assumptions
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How It Works
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Scheduling Algorithm
 
-## Deploy on Vercel
+ChargeFlow uses a weighted scoring algorithm to rank each hour:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+score = (priceWeight × normalizedPrice) +
+        (carbonWeight × normalizedCarbon) +
+        (gridWeight × normalizedGridLoad)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Lower scores indicate better charging hours. The algorithm:
+1. Calculates total kWh needed
+2. Scores each available hour
+3. Allocates charging to the lowest-scored hours first
+4. Respects the user's deadline constraint
+
+### Weights by Preference
+
+| Preference | Price | Carbon | Grid |
+|------------|-------|--------|------|
+| Cheapest   | 70%   | 20%    | 10%  |
+| Greenest   | 10%   | 70%    | 20%  |
+| Balanced   | 40%   | 40%    | 20%  |
+
+## Demo Mode
+
+Demo mode pre-fills realistic values:
+- Vehicle: Tesla Model 3 (60 kWh battery)
+- Current charge: 20%
+- Target charge: 80%
+- Deadline: 8:00 AM
+- Scenario: Weekday Peak
+
+## License
+
+MIT
+
+## Team
+
+Built for TecStorm'26 Hackathon — Lisbon, Portugal

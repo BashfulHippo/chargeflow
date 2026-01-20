@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI/development context files
+CLAUDE.md
+.claude/
+.cursor/
+.aider*
+copilot-*
