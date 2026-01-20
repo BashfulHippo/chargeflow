@@ -47,13 +47,13 @@ export function ScheduleChart({ schedule, startHour }: ScheduleChartProps) {
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: "var(--card)",
-              border: "1px solid var(--card-border)",
+              backgroundColor: "#141414",
+              border: "1px solid rgba(255, 255, 255, 0.06)",
               borderRadius: "8px",
-              boxShadow: "var(--card-shadow)",
+              boxShadow: "0 6px 18px rgba(0, 0, 0, 0.55)",
             }}
-            labelStyle={{ color: "var(--muted-foreground)" }}
-            itemStyle={{ color: "var(--primary)" }}
+            labelStyle={{ color: "#888888" }}
+            itemStyle={{ color: "#22c55e" }}
             formatter={(value) => [`${Number(value).toFixed(1)} kWh`, "Charging"]}
             labelFormatter={(label) => `Time: ${label}`}
             cursor={{ fill: "var(--accent)" }}
